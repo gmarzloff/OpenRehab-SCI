@@ -1,0 +1,15 @@
+/* Custom CSS classes */
+
+table.asiaclassification td {
+	padding: 2px;
+	border: 0px;
+}
+table.asiaclassification .evenrow {
+	background-color: #cce6ff;
+}
+table.asiaclassification .oddrow {
+	background-color: white;
+}
+table.asiaclassification tr td:nth-of-type(1) {
+	padding: 10px;
+}
