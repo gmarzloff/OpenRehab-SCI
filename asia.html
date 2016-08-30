@@ -1,15 +1,25 @@
 
 <!-- We don't need full layout here, because this page will be parsed with Ajax-->
 <!-- Top Navbar-->
+
+<!-- Dynamic navbar for iOS theme -->
 <div class="navbar">
-  <div class="navbar-inner">
-    <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">ASIA Impairment Scale</div>
-  </div>
+    <div class="navbar-inner">
+        <div class="left sliding">
+            <a href="#" class="back">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+            </a>
+        </div>
+        <div class="center sliding">ASIA Impairment Scale</div>
+    </div>
 </div>
+
+
 <div class="pages">
   <!-- Page, data-page contains page name-->
-  <div data-page="about" class="page">
+  <div data-page="asia" class="page">
+
     <!-- Scrollable page content-->
     <div class="page-content">
       <div class="content-block">
@@ -35,30 +45,30 @@
         <div class="content-block-title">AIS Classification</div>
         <div class="content-block-inner">
 
-         <table class="asiaclassification" cellspacing="0">
-          <tr class="evenrow">
+         <table id="asiaclassification" class="toggleRowColors" cellspacing="0">
+          <tr>
             <td>A</td>
             <td>  <span style="font-weight: bold">Complete.</span><br/ >No sensory or motor function at S4/S5</td>
           </tr>
 
-          <tr class="oddrow">
+          <tr>
             <td>B</td>
             <td> <span style="font-weight: bold">Sensory Incomplete.</span><br />Sensory, but no motor function at S4/S5</td>
           </tr>
 
-          <tr class="evenrow">
+          <tr>
             <td>C</td>
             <td> <span style="font-weight: bold">Motor Incomplete.</span><br />
             More than half of key muscles below the single neurological level have a grade less than 3. Motor function present more than 3 levels below the motor level or (+)VAC</td>
           </tr>
 
-          <tr class="oddrow">
+          <tr>
             <td>D</td>
             <td> <span style="font-weight: bold">Motor Incomplete.</span><br />
              Half or more key muscles below the single neurological levelhave a grade greater than or equal to 3.</td>
           </tr>
 
-          <tr class="evenrow">  
+          <tr>  
             <td>E</td>
             <td> <span style="font-weight: bold">Normal.</span><br />
             All components of International Standards Exam are Normal.</td>
