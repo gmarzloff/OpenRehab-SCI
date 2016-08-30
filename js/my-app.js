@@ -15,7 +15,7 @@ if (isAndroid) {
     // Change class
     $$('.view .navbar-through').removeClass('navbar-through').addClass('navbar-fixed');
     // And move Navbar into Page
-    // $$('.view .navbar').prependTo('.view .page');
+    $$('.view .navbar').prependTo('.view .page');
 }
 
 // Initialize your app

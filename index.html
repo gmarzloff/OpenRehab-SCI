@@ -6,11 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>SCI Medicine PocketGuide</title>
-    <!-- Path to Framework7 Library CSS-->
-    <link rel="stylesheet" href="css/framework7.ios.min.css">
-    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
-    <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/my-app.css">
+    <!-- CSS files are linked via javascript at end of page -->
   </head>
   <body>
     <!-- Status bar overlay for fullscreen mode-->
@@ -199,14 +195,14 @@
               Dom7('head').append(
                   '<link rel="stylesheet" href="css/framework7.material.min.css">' +
                   '<link rel="stylesheet" href="css/framework7.material.colors.min.css">' +
-                  '<link rel="stylesheet" href="css/my-app.material.css">'
+                  '<link rel="stylesheet" href="css/my-app.css">'
               );
           }
           else {
               Dom7('head').append(
-                  '<link rel="stylesheet" href="css/to/framework7.ios.min.css">' +
-                  '<link rel="stylesheet" href="css/to/framework7.ios.colors.min.css">' +
-                  '<link rel="stylesheet" href="css/to/my-app.ios.css">'
+                  '<link rel="stylesheet" href="css/framework7.ios.min.css">' +
+                  '<link rel="stylesheet" href="css/framework7.ios.colors.min.css">' +
+                  '<link rel="stylesheet" href="css/to/my-app.css">'
               );
           }
       })();
