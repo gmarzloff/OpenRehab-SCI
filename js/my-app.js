@@ -10,20 +10,26 @@ Template7.global = {
 
 // Export selectors engine
 var $$ = Dom7;
-
+/*
 if (isAndroid) {
     // Change class
     $$('.view .navbar-through').removeClass('navbar-through').addClass('navbar-fixed');
     // And move Navbar into Page
     $$('.view .navbar').prependTo('.view .page');
-}
+}*/
 
 // Initialize your app
 var myApp = new Framework7({
     //Enable Material theme for Android device only
     material: isAndroid ? true : false,
     //Enable Template7 pages
-    template7pages: true
+    template7pages: true,
+    precompileTemplates: true,
+    animateNavBackIcon: true,
+    pushState: true,
+    sortable: false, // disable sortable lists, improves performance
+    swipeout: false, // not using this
+    scrollTopOnNavbarClick : true
 });
 
 // Add view

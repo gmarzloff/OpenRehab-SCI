@@ -4,9 +4,7 @@
 .no-top-margin {
 	margin: 0 !important;
 }
-.no-bottom-padding {
-	padding-bottom: 0 !important; 
-}
+
 
 /* ASIA VIEWS */
 table#asiaclassification td {
@@ -23,6 +21,12 @@ table#asiaclassification tr td:nth-of-type(1) {
 .swiper-container {
 	height: 100%;
 }
+
+.swiper-slide {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 #swiper-press-inj .swiper-slide {
 	background-color: #fff;
 }
