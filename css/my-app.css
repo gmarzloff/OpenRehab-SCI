@@ -5,6 +5,12 @@
 	margin: 0 !important;
 }
 
+.indexFooter {
+	text-align: center;
+}
+.sinailogo{
+	width: 200px;
+}
 
 /* ASIA VIEWS */
 table#asiaclassification td {
