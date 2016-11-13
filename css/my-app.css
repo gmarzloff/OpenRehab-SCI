@@ -76,7 +76,7 @@ table#asiaclassification tr td:nth-of-type(1) {
 	font-weight: bold;
 }
 
- /*ASIA, OTHER SCALES*/
+ /*ASIA,  SCALES*/
 .toggleRowColors tr:nth-child(odd){
 	background-color: #cce6ff;
 }
@@ -90,4 +90,9 @@ table#asiaclassification tr td:nth-of-type(1) {
 .subheadrow {
 	text-align: center;
 	font-style: italic;
+}
+
+.wide-label {
+	width: 100%; /* splits width 1:1 :: label:slider */
+	flex-shrink: 0;
 }

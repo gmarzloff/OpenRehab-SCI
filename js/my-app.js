@@ -48,6 +48,43 @@ myApp.onPageInit('asia', function (page) {
     });
 });
 */
+myApp.onPageInit('fim', function (page) {
+
+    var fimDomainCount = $$('.fimCalculator li').length;
+    var fimScores = [];         // creates an array of scores
+    resetFIMarr();       // sets all elements to 0
+    
+    $$('.fimCalculator li input[type="range"]').each(function(index,value){
+        $$(this).on('input change', function(){
+            fimScores[index] = parseInt(this.value);
+            $$(this).parents().eq(2).find('span.score').text('('+this.value+')');
+
+            // calculate the total FIM score
+            $$('#totalScore').html('Total: ' + getSum(fimScores));
+        });
+    });
+
+    $$('#resetFIMscoresButton').click(function(){
+        resetFIMarr();
+        $$('#totalScore').html('Total: ' + getSum(fimScores));
+        $$('.fimCalculator li input[type="range"]').each(function(){
+            // $$(this).attr("value","0");
+        });
+    });
+
+    function resetFIMarr(){
+        for(i=0; i<fimDomainCount; i++){ fimScores[i] = 0; }
+    }
+
+    function getSum(scores){
+        var sum =0;
+        for (i=0; i<scores.length;i++){
+            sum+= scores[i];
+        }
+        return sum;
+    }
+    
+});
 
 /*
 // Generate dynamic page

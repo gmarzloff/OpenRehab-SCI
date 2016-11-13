@@ -1,0 +1,267 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">FIM Reference</div>
+    <div class="right" id="totalScore">Total: 0</div>
+  </div>
+</div>
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="fim" class="page">
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="content-block">
+        
+        <div class="content-block-title">Scoring Criteria</div>
+        <div class="content-block-inner">
+
+         <table id="fimclassification" class="toggleRowColors" cellspacing="0">
+          <tr><td>Score</td><td>Description</td></tr>
+         
+          <tr class="subheadrow"><td colspan="2">No Helper Required</td></tr>
+          <tr>
+            <td>7</td>
+            <td>Complete Independence</td>
+          </tr>
+
+          <tr>
+            <td>6</td>
+            <td>modified independence (patient requires use of a device but no physical assistance
+Helper (modified independence)</td>
+          </tr>
+          <tr><td class="subheadrow" colspan="2">Helper (modified independence)</td></tr>
+          <tr>
+            <td>5</td>
+            <td>Supervision or setup</td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>minimal contact assistance (patient can perform 75% or more of task)</td>
+          </tr>
+
+          <tr>  
+            <td>3</td>
+            <td>moderate assistance (patient can perform 50%-74% of task)
+Helper (complete dependence)</td>
+          </tr>
+
+          <tr class="subheadrow"><td colspan="2">Helper (complete dependence)</td></tr>
+
+          <tr>  
+            <td>2</td>
+            <td>maximal assistance (patient can perform 25%-49% of tasks)</td>
+          </tr>
+
+          <tr>  
+            <td>1</td>
+            <td>Total assistance (patient can perform less than 25% of task or requires more than one person to assist</td>
+          </tr>
+
+         </table>
+        </div>
+
+
+      </div>
+
+      <div class="content-block">
+        
+        <div class="content-block-title">Score Calculator <span id="fim_score"></span></div>
+        <div class="list-block">
+
+          <!-- create row for each item -->
+
+          <ul class="fimCalculator">
+            
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Eating <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Grooming <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Bathing <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Dressing Upper <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Dressing Lower <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Toileting <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+         
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Bladder <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Bowel <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title wide-label">Bed,Chair,W/C <span class="score">(0)</span></div>
+                    <div class="item-input">
+                      <div class="range-slider">
+                        <input type="range" min="0" max="7" value="0" step="1">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Toilet <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Tub,Shower <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Walk or W/C <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Locomotion <span class="score">(0)</span> </div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Stairs <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <p><a href="#" id="resetFIMscoresButton" class="button button-fill color-red button-round">Reset Scores</a></p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
