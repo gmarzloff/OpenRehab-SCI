@@ -67,9 +67,7 @@ myApp.onPageInit('fim', function (page) {
     $$('#resetFIMscoresButton').click(function(){
         resetFIMarr();
         $$('#totalScore').html('Total: ' + getSum(fimScores));
-        $$('.fimCalculator li input[type="range"]').each(function(){
-            // $$(this).attr("value","0");
-        });
+        $$('.fimCalculator li input[type="range"]').val(0);
     });
 
     function resetFIMarr(){
