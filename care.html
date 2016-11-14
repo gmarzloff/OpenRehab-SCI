@@ -1,0 +1,69 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">SCIM Reference</div>
+    <div class="right" id="totalScore">Total: 0</div>
+  </div>
+</div>
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="fim" class="page">
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="content-block">
+        
+        <div class="content-block-title">Scoring Criteria</div>
+        <div class="content-block-inner">
+
+         <table id="scimclassification" class="toggleRowColors" cellspacing="0">
+          <tr><td>Score</td><td>Description</td></tr>
+         
+          <tr class="subheadrow"><td colspan="2">No Helper Required</td></tr>
+          <tr>
+            <td>7</td>
+            <td>Complete Independence</td>
+          </tr>
+
+          <tr>
+            <td>6</td>
+            <td>modified independence (patient requires use of a device but no physical assistance
+Helper (modified independence)</td>
+          </tr>
+          
+         </table>
+        </div>
+
+      </div>
+
+      <div class="content-block">
+        
+        <div class="content-block-title">Score Calculator <span id="fim_score"></span></div>
+        <div class="list-block">
+
+          <!-- create row for each item -->
+
+          <ul class="fimCalculator">
+            
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title wide-label">Eating <span class="score">(0)</span></div>
+                  <div class="item-input">
+                    <div class="range-slider">
+                      <input type="range" min="0" max="7" value="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
+          <p><a href="#" id="resetFIMscoresButton" class="button button-fill color-red button-round">Reset Scores</a></p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
