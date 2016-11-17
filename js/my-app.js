@@ -52,7 +52,7 @@ myApp.onPageInit('fim', function (page) {
 
     var fimDomainCount = $$('.fimCalculator li').length;
     var fimScores = [];         // creates an array of scores
-    resetFIMarr();       // sets all elements to 0
+    resetFIMarr();              // sets all elements to 0
     
     $$('.fimCalculator li input[type="range"]').each(function(index,value){
         $$(this).on('input change', function(){
