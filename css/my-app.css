@@ -96,3 +96,21 @@ table#asiaclassification tr td:nth-of-type(1) {
 	width: 100%; /* splits width 1:1 :: label:slider */
 	flex-shrink: 0;
 }
+
+/* Scale Question Swipers */
+
+.swiper-slide {
+  background: #fff;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+.swiper-slide span {
+  text-align:center;
+  display:block;
+  margin: 20px;
+  font-size:21px;
+}
+.swiper-container {
+  height: 120px;
+  margin: 35px 0;
+}

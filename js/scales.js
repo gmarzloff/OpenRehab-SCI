@@ -10,7 +10,19 @@ var SCIM_Scale = function () {
 
 	this.name = "Spinal Cord Independence Measure";
 
-	this.questions = [new Question(
+	this.mobilityChoices = [
+						new Choice("Requires total assistance", 0),	
+						new Choice("Needs electric wheelchair or partial assistance to operate manual wheelchair", 1),	
+						new Choice("Moves independently in manual wheelchair", 2),
+						new Choice("Requires supervision while walking (with or without devices)", 3),	
+						new Choice("Walks with a walking frame or crutches (swing)", 4),	
+						new Choice("Walks with crutches or two canes (reciprocal walking)", 5),
+						new Choice("Walks with one cane", 6),
+						new Choice("Needs leg orthosis only", 7),
+						new Choice("Walks without walking aids", 8)
+					];	
+
+		this.questions = [new Question(
 						"1. Feeding (cutting, opening containers, pouring, bringing food to mouth, holding cup with fluid)",
 						[
 							new Choice("Needs parenteral, gastrostomy or fully assisted oral feeding", 0),
@@ -187,25 +199,15 @@ var SCIM_Scale = function () {
 						"Mobility (indoors and outdoors)")
 					];
 
-	this.mobilityChoices = [
-						new Choice("Requires total assistance", 0),	
-						new Choice("Needs electric wheelchair or partial assistance to operate manual wheelchair", 1),	
-						new Choice("Moves independently in manual wheelchair", 2),
-						new Choice("Requires supervision while walking (with or without devices)", 3),	
-						new Choice("Walks with a walking frame or crutches (swing)", 4),	
-						new Choice("Walks with crutches or two canes (reciprocal walking)", 5),
-						new Choice("Walks with one cane", 6),
-						new Choice("Needs leg orthosis only", 7),
-						new Choice("Walks without walking aids", 8)
-					];	
-	
 	this.userScores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; // initializes array to keep track of score for each question. 19 total questions
+	
+	
 
 }
 
 var Question = function(title,choices,category){
 	this.title = title;
-	this.choices = [];
+	this.choices = choices;
 	this.category = category;
 };
 

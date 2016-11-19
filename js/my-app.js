@@ -84,6 +84,31 @@ myApp.onPageInit('fim', function (page) {
     
 });
 
+myApp.onPageInit('scim', function (page) {
+
+    var scim = new SCIM_Scale();    // load the questions from the scales.js model
+    var scimHTML = "";
+
+    for(i=0;i<scim.questions.length;i++){
+        var q = scim.questions[i];
+        var subSectionHTML = "<div class=\"content-block-title\">" + q.title + "</div>\n\t\t" +
+                             "<div id=\"scim" +i+ "\" class=\"swiper-container swiper-init\">\n\t\t\t" +
+                            "<div class=\"swiper-pagination\"></div>\n" + 
+                            "<div class=\"swiper-wrapper\">\n\t";
+
+        for (j=0; j < q.choices.length; j++){
+            subSectionHTML += "<div class=\"swiper-slide\" value=\"" + scim.questions[i].choices[j].value + "\"><span>" + 
+            q.choices[j].description + "</span></div>\n";
+        }
+        subSectionHTML += "</div>\n</div>\n";
+
+        scimHTML = scimHTML + subSectionHTML;
+    }
+
+    $$('#scim-page-content').append(scimHTML);
+
+});
+
 /*
 // Generate dynamic page
 var dynamicPageIndex = 0;
