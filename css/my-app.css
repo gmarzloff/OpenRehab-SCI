@@ -97,6 +97,13 @@ table#asiaclassification tr td:nth-of-type(1) {
 	flex-shrink: 0;
 }
 
+a.f7-icons:visited, 
+a.f7-icons:link { 
+	color: blue;
+}
+#emailButton .f7-icons {
+	font-size: 40px;
+}
 /* Scale Question Swipers */
 .normal-word-wrap {
 	white-space: normal;

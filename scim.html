@@ -2,7 +2,7 @@
   <div class="navbar-inner">
     <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
     <div class="center sliding">SCIM III</div>
-    <div class="right" id="scimScore">0/100</div>
+    <div class="right" id="scimScore"><span>0/100</span>&nbsp;&nbsp;<a href="#" id="emailButton"><i class="f7-icons">email</i></a></div>
   </div>
 </div>
 <div class="pages">
@@ -26,7 +26,7 @@
               <div class="item-media"><i class="icon f7-icons">person</i></div>
               <div class="item-inner">
                 <div class="item-input">
-                  <input type="text" placeholder="(avoid patient identifiers)">
+                  <input type="text" id="case_id" placeholder="(avoid patient identifiers)" />
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@
 
       <div class="content-block-title">Assessment Time Point</div>
       <div class="list-block">
-        <ul>
+        <ul id="assessmentOptions">
           <!-- Single chekbox item -->
           <li>
             <label class="label-radio item-content">

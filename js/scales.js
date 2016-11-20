@@ -185,7 +185,7 @@ var SCIM_Scale = function () {
 						"Mobility (indoors and outdoors)"),
 
 					new Question(
-						"16. Transfers - wheelchair-car (approach car, lock w/c, remove arm &amp' footrests, transfers to/from car, brings w/c in/out of car)",
+						"16. Transfers - wheelchair-car (approach car, lock w/c, remove arm and footrests, transfers to/from car, brings w/c in/out of car)",
 						[
 							new Choice("Requires total assistance", 0),	
 							new Choice("Needs partial assistance and/or supervision and/or adaptive devices", 1),
@@ -203,15 +203,48 @@ var SCIM_Scale = function () {
 					];
 
 	this.userScores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; // initializes array to keep track of score for each question. 19 total questions
-	
-	
+
+	this.sendReportByEmail = function(){
+
+		var idtext = $$('#case_id').val() != null ? $$('#case_id').val() : "";
+		var subj = idtext + " SCIM III Report";
+		var now = new Date();
+		var timestampString = (now.getMonth()+1) + "/" + now.getDate() + "/" + now.getFullYear(); 
+
+		var reportText = "SCIM III Report, Date: " + timestampString +
+		"\nCase ID: " + idtext + "\n" +
+		"Assessment Type: " + $$('input[name="timePoint"]:checked').val() + " | " + "Total Score: " + $$('#scimScore span').html() + "\n\n";
+
+		var quesText = "";
+		for(i=0; i< this.questions.length; i++){
+			var q = this.questions[i];
+			var choice = q.choiceFromScore(this.userScores[i]);
+			quesText += q.title + "\n" + "(" + choice.value + ") " + choice.description + "\n\n";
+		}
+		reportText += quesText;
+
+		location.href = encodeURI('mailto:?&subject='+subj+'&body='+reportText);
+	}
 
 }
 
 var Question = function(title,choices,category){
-	this.title = title;
-	this.choices = choices;
-	this.category = category;
+		this.title = title;
+		this.choices = choices;
+		this.category = category;
+};
+
+Question.prototype.choiceFromScore = function(score){
+	if(score != null){
+		for(k=0; k<this.choices.length; k++){
+			var c = this.choices[k];
+			if(c.value == score){
+				return c;
+			}
+		}
+	}else{
+		return {description: "error: score is null.", value: null};
+	}
 };
 
 var Choice = function(desc,value){
