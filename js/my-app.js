@@ -109,7 +109,7 @@ myApp.onPageInit('scim', function (page) {
             grabCursor: true,
             spaceBetween: 50,
             onSlideChangeEnd: function(swiper){
-                // callback function triggered when finger touch is finished
+                // callback function triggered when slide finishes moving
                 var newScore = swiper.slides[swiper.activeIndex].getAttribute("score");
                 scim.userScores[swiper.container[0].getAttribute("index")] = parseInt(newScore);
                 $$('#scimScore').html(getSum(scim.userScores) + "/100");

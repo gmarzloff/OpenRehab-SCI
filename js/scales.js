@@ -53,12 +53,13 @@ var SCIM_Scale = function () {
 						"Self-Care"),
 
 					new Question(
-						"3A. Bathing Upper Body (soaping, washing, drying, manipulating water tap)",
+						"3A. Dressing Upper Body (clothes, shoes, permanent orthoses; dressing, wearing, undressing)",
 						[
 							new Choice("Requires total assistance", 0),
-							new Choice("Requires partial assistance", 1),
- 							new Choice("Washes independently with adaptive devices or in a specific setting (e.g., bars, chair", 2),
-							new Choice("Washes independently; does not require adaptive devices or specific setting", 3)
+							new Choice("Requires partial assistance with clothes without buttons, zippers or laces (cwobzl)", 1),
+ 							new Choice("Independent with cwobzl; requires adaptive devices and/or specific settings (adss)", 2),
+ 							new Choice("Independent with cwobzl; does not require adss; needs assistance or adss only for bzl.", 3),
+							new Choice("Dresses (any clothes) independently; does not require adaptive devices or specific setting", 4)
 						],
 						"Self-Care"),
 
@@ -68,7 +69,8 @@ var SCIM_Scale = function () {
 							new Choice("Requires total assistance", 0),
 							new Choice("Requires partial assistance with clothes without buttons, zippers or laces (cwobzl)", 1),
  							new Choice("Independent with cwobzl; requires adaptive devices and/or specific settings (adss)", 2),
-							new Choice("Dresses (any clothes) independently; does not require adaptive devices or specific setting", 3)
+ 							new Choice("Independent with (cwobzl) without adss; needs assistance or adss only for bzl.", 3), 							  
+							new Choice("Dresses (any clothes) independently; does not require adaptive devices or specific setting", 4)
 						],
 						"Self-Care"),
 
@@ -186,7 +188,8 @@ var SCIM_Scale = function () {
 						"16. Transfers - wheelchair-car (approach car, lock w/c, remove arm &amp' footrests, transfers to/from car, brings w/c in/out of car)",
 						[
 							new Choice("Requires total assistance", 0),	
-							new Choice("Needs partial assistance and/or supervision and/or adaptive devices", 1)
+							new Choice("Needs partial assistance and/or supervision and/or adaptive devices", 1),
+							new Choice("Transfers independent; does not require adaptive devices (or does not require wheelchair)", 2)
 						],
 						"Mobility (indoors and outdoors)"),
 
