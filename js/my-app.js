@@ -73,16 +73,10 @@ myApp.onPageInit('fim', function (page) {
     function resetFIMarr(){
         for(i=0; i<fimDomainCount; i++){ fimScores[i] = 0; }
     }
-
-    function getSum(scores){
-        var sum =0;
-        for (i=0; i<scores.length;i++){
-            sum+= scores[i];
-        }
-        return sum;
-    }
     
 });
+
+var scimsliders = [];
 
 myApp.onPageInit('scim', function (page) {
 
@@ -91,23 +85,63 @@ myApp.onPageInit('scim', function (page) {
 
     for(i=0;i<scim.questions.length;i++){
         var q = scim.questions[i];
-        var subSectionHTML = "<div class=\"content-block-title\">" + q.title + "</div>\n\t\t" +
-                             "<div id=\"scim" +i+ "\" class=\"swiper-container swiper-init\">\n\t\t\t" +
+        var subSectionHTML = "<div class=\"content-block-title normal-word-wrap\">" + q.title + "</div>\n\t\t" +
+                             "<div class=\"swiper-container swiper-" + i + "\" index=\"" + i +  "\">\n\t\t\t" +
                             "<div class=\"swiper-pagination\"></div>\n" + 
                             "<div class=\"swiper-wrapper\">\n\t";
 
         for (j=0; j < q.choices.length; j++){
-            subSectionHTML += "<div class=\"swiper-slide\" value=\"" + scim.questions[i].choices[j].value + "\"><span>" + 
-            q.choices[j].description + "</span></div>\n";
+            subSectionHTML += "<div class=\"swiper-slide\" score=\"" + q.choices[j].value + "\"><span>("+ q.choices[j].value + 
+            ") " + q.choices[j].description + "</span></div>\n";
         }
         subSectionHTML += "</div>\n</div>\n";
-
         scimHTML = scimHTML + subSectionHTML;
     }
 
     $$('#scim-page-content').append(scimHTML);
 
+    for(i=0;i<scim.questions.length;i++){
+        // Activate the slider functionality
+        var targetSwiperDiv = '.swiper-'+i;
+
+        scimsliders[i] = myApp.swiper(targetSwiperDiv, {
+            pagination:'.swiper-pagination',
+            grabCursor: true,
+            spaceBetween: 50,
+            onSlideChangeEnd: function(swiper){
+                // callback function triggered when finger touch is finished
+                var newScore = swiper.slides[swiper.activeIndex].getAttribute("score");
+                scim.userScores[swiper.container[0].getAttribute("index")] = parseInt(newScore);
+                $$('#scimScore').html(getSum(scim.userScores) + "/100");
+            }
+        });
+    }
 });
+
+
+
+var myswiper99;
+myApp.onPageInit('care', function (page) {
+
+    myswiper99 = myApp.swiper('.swiper-care-test', {
+        spaceBetween: 50, 
+        pagination: '.swiper-pagination', 
+        grabCursor:true,
+        onSlideChangeEnd: function(swiper){
+            var newScore = $$('.swiper-care-test .swiper-slide-active').attr("score");
+            console.log("new slide score: " + newScore);
+        }
+    });
+});
+
+// Gets sum of array items
+function getSum(scores){
+    var sum =0;
+    for (i=0; i<scores.length;i++){
+        sum+= scores[i];
+    }
+    return sum;
+}
 
 /*
 // Generate dynamic page

@@ -98,6 +98,9 @@ table#asiaclassification tr td:nth-of-type(1) {
 }
 
 /* Scale Question Swipers */
+.normal-word-wrap {
+	white-space: normal;
+}
 
 .swiper-slide {
   background: #fff;
