@@ -97,6 +97,7 @@ myApp.onPageInit('scim', function (page) {
         subSectionHTML += "</div>\n</div>\n";
         scimHTML = scimHTML + subSectionHTML;
     }
+    scimHTML = scimHTML + "\n\n<p><a href=\"#\" id=\"resetSCIMscoresButton\" class=\"button button-fill color-red button-round\">Reset Scores</a></p>";
 
     $$('#scim-page-content').append(scimHTML);
 
@@ -119,6 +120,14 @@ myApp.onPageInit('scim', function (page) {
 
     $$('#emailButton').on('click', function () {
         scim.sendReportByEmail();
+    });
+
+    $$('#resetSCIMscoresButton').click(function(){
+        for(i=0; i< scim.userScores.length; i++){ 
+            scim.userScores[i] = 0;                       // reset all user scores to 0
+            scimsliders[i].slideTo(0, 500, false);   // move all sliders back to 0 & skip callbacks
+        }
+        $$('#scimScore span').html('0/100');
     });
 });
 
