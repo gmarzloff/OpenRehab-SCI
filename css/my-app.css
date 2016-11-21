@@ -126,3 +126,8 @@ a.f7-icons:link {
   	height: 120px;
   	margin: -5px 0 40px;
 }
+
+/* PAIQI page */
+.activity-block .activityTitle {
+	font-weight: bold;
+}

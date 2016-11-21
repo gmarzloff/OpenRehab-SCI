@@ -132,19 +132,49 @@ myApp.onPageInit('scim', function (page) {
 });
 
 
+myApp.onPageInit('paiqi', function (page) {
+    var paiqi = new PAIQI_Scale();
+    var paiqiScores = [];           // creates an array of scores
+    resetPAIQIarr();                  // sets all elements to 0
+    
+    // Generate HTML for list of sliders
+    var activityHTMLstring = ""
+    for(i=0;i<paiqi.questions.length;i++){
+        var q = paiqi.questions[i];
+        var subSectionHTML = "<div class=\"content-block activity-block\">\n\t<div class=\"content-block-inner\">\n\t" +
+                            "<p><span class=\"activityTitle\">" + q.title + ":</span> " + q.description + "</p>\n\t\t" +
+                             "<div class=\"item-title\"><span class=\"score\">(0)</span></div>\n" + 
+                            "<div class=\"item-input\"><div class=\"range-slider\">\n" +
+                            "<input type=\"range\" min=\"0\" max=\"6\" value=\"0\" step=\"1\"></div></div>" +
+                            "</div>\n</div>\n";
+        activityHTMLstring = activityHTMLstring + subSectionHTML;
+    }
+    activityHTMLstring = activityHTMLstring + "\n\n<p><a href=\"#\" id=\"resetPAIQIscoresButton\" class=\"button button-fill color-red button-round\">Reset Scores</a></p>";
+    $$('#paiqi-page-content').append(activityHTMLstring);
 
-var myswiper99;
-myApp.onPageInit('care', function (page) {
 
-    myswiper99 = myApp.swiper('.swiper-care-test', {
-        spaceBetween: 50, 
-        pagination: '.swiper-pagination', 
-        grabCursor:true,
-        onSlideChangeEnd: function(swiper){
-            var newScore = $$('.swiper-care-test .swiper-slide-active').attr("score");
-            console.log("new slide score: " + newScore);
-        }
+
+    $$('.activity-block input[type="range"]').each(function(index,value){
+        $$(this).on('input change', function(){
+            paiqiScores[index] = parseInt(this.value);
+            $$(this).parents().eq(2).find('span.score').text('('+this.value+')');
+
+            // calculate the total FIM score
+            $$('#totalScore').html('Total: ' + getSum(paiqiScores));
+        });
     });
+
+    $$('#resetPAIQIscoresButton').click(function(){
+        resetPAIQIarr();
+        $$('#totalScore').html('Total: ' + getSum(paiqiScores));
+        $$('.activity-block input[type="range"]').val(0);
+    });
+
+    function resetPAIQIarr(){
+        for(i=0; i<paiqi.questions.length; i++){ paiqiScores[i] = 0; }
+    }
+    
+    
 });
 
 // Gets sum of array items

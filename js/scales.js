@@ -1,10 +1,13 @@
 /* 	scales.js 
-* 	In this file we define data as objects to populate the SCIM, CARE, etc. scales
+* 	In this file we define data as objects to populate the SCIM & PAIQI, scales
 *	created by George Marzloff | george@marzloffmedia.com
 */
 
 // SCIM
 // Based on http://sci2.rickhanseninstitute.org/images/sci2/SCIM/toolkit/SCIM_Clinical_Form.pdf
+
+//PAIQI 
+// https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/IRF-Quality-Reporting/Downloads/DRAFT-IRF-PAI-FOR-OCT-2016.pdf
 
 var SCIM_Scale = function () {
 
@@ -250,4 +253,51 @@ Question.prototype.choiceFromScore = function(score){
 var Choice = function(desc,value){
 	this.description = desc;
 	this.value = value;
-}
+};
+
+
+// *******************	******************  *******************  *******************  *******************
+// *******************	******************  *******************  *******************  *******************
+
+// CMS PAI QI Assessment Class
+
+var PAIQI_Scale = function () {
+
+	this.questions = [
+
+		//Self-care
+		new Activity("A. Eating", "The ability to use suitable utensils to bring food to the mouth and swallow food once the meal is presented on a table/tray. Includes modified food consistency."),
+		new Activity("B. Oral hygiene", "The ability to use suitable items to clean teeth. [Dentures (if applicable): The ability to remove and replace dentures from and to the mouth, and manage equipment for soaking and rinsing them.]"),
+		new Activity("C. Toileting hygiene", "The ability to maintain perineal hygiene, adjust clothes before and after using the toilet, commode, bedpan or urinal. If managing an ostomy, include wiping the opening but not managing equipment. "),
+		new Activity("E. Shower/bathe self", "The ability to bathe self in shower or tub, including washing, rinsing, and drying self. Does not include transferring in/out of tub/shower."),
+		new Activity("F. Upper body dressing", " The ability to put on and remove shirt or pajama top; includes buttoning, if applicable."),
+		new Activity("G. Lower body dressing", "The ability to dress and undress below the waist, including fasteners; does not include footwear."),
+		new Activity("H. Putting on/taking off footwear", "The ability to put on and take off socks and shoes or other footwear that is appropriate for safe mobility."),
+
+		// Mobility
+		new Activity("A. Roll left and right", "The ability to roll from lying on back to left and right side, and return to lying on back."),
+		new Activity("B. Sit to lying", "The ability to move from sitting on side of bed to lying flat on the bed."),
+		new Activity("C. Lying to sitting on side of bed", "The ability to safely move from lying on the back to sitting on the side of the bed with feet flat on the floor, and with no back support."),
+		new Activity("D. Sit to stand", "The ability to safely come to a standing position from sitting in a chair or on the side of the bed."),
+		new Activity("E. Chair/bed-to-chair transfer", "The ability to safely transfer to and from a bed to a chair (or wheelchair)."),
+		new Activity("F. Toilet transfer", "The ability to safely get on and off a toilet or commode."),
+		new Activity("G. Car transfer", "The ability to transfer in and out of a car or van on the passenger side. Does not include the ability to open/close door or fasten seat belt."),
+		new Activity("I. Walk 10 feet", "Once standing, the ability to walk at least 10 feet in a room, corridor or similar space."),
+		new Activity("J. Walk 50 feet with two turns", "Once standing, the ability to walk at least 50 feet and make two turns. "),
+		new Activity("K. Walk 150 feet", "Once standing, the ability to walk at least 150 feet in a corridor or similar space."),
+		new Activity("L. Walking 10 feet on uneven surfaces", "The ability to walk 10 feet on uneven or sloping surfaces, such as grass or gravel."),
+		new Activity("M. 1 step (curb)", "The ability to step over a curb or up and down one step"),
+		new Activity("N. 4 steps", "The ability to go up and down four steps with or without a rail."),
+		new Activity("O. 12 steps", "The ability to go up and down 12 steps with or without a rail."),
+		new Activity("P. Picking up object", "The ability to bend/stoop from a standing position to pick up a small object, such as a spoon, from the floor."),
+		new Activity("R. Wheel 50 feet with two turns", "Once seated in wheelchair/scooter, the ability to wheel at least 50 feet and make two turns."),
+		new Activity("S. Wheel 150 feet", "Once seated in wheelchair/scooter, the ability to wheel at least 150 feet in a corridor or similar space.")
+	];
+
+
+};
+
+var Activity = function(title,description){
+	this.title = title;
+	this.description = description;
+};
