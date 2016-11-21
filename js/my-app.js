@@ -168,6 +168,7 @@ myApp.onPageInit('paiqi', function (page) {
         resetPAIQIarr();
         $$('#totalScore').html('Total: ' + getSum(paiqiScores));
         $$('.activity-block input[type="range"]').val(0);
+        $$('.activity-block span.score').html('(0)');
     });
 
     function resetPAIQIarr(){
