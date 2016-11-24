@@ -131,3 +131,13 @@ a.f7-icons:link {
 .activity-block .activityTitle {
 	font-weight: bold;
 }
+
+/* contacts page, created as part of tutorial */
+#contacts-page-content .portrait {
+	float: left;
+	padding: 15px;
+	height: 50px;
+}
+.portrait img {
+	width: 80px;
+}
