@@ -86,7 +86,7 @@ myApp.onPageInit('scim', function (page) {
     for(i=0;i<scim.questions.length;i++){
         var q = scim.questions[i];
         var subSectionHTML = "<div class=\"content-block-title normal-word-wrap\">" + q.title + "</div>\n\t\t" +
-                             "<div class=\"swiper-container swiper-" + i + "\" index=\"" + i +  "\">\n\t\t\t" +
+                             "<div class=\"swiper-container scim-mini-slider swiper-" + i + "\" index=\"" + i +  "\">\n\t\t\t" +
                             "<div class=\"swiper-pagination\"></div>\n" + 
                             "<div class=\"swiper-wrapper\">\n\t";
 
