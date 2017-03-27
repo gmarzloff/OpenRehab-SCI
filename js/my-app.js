@@ -39,40 +39,59 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: true
 });
 
-/*
-// Callbacks to run specific code for specific pages, for example for About page:
-myApp.onPageInit('asia', function (page) {
-    // run createContentPage func after link was clicked
-    $$('.create-page').on('click', function () {
-        createContentPage();
-    });
-});
-*/
+// Callbacks for individual pages
+
+var fimsliders = [];
+
 myApp.onPageInit('fim', function (page) {
 
-    var fimDomainCount = $$('.fimCalculator li').length;
-    var fimScores = [];         // creates an array of scores
-    resetFIMarr();              // sets all elements to 0
+    var fim = new FIM_Scale();    // load the questions from the scales.js model
+    var fimHTML = "";
     
-    $$('.fimCalculator li input[type="range"]').each(function(index,value){
-        $$(this).on('input change', function(){
-            fimScores[index] = parseInt(this.value);
-            $$(this).parents().eq(2).find('span.score').text('('+this.value+')');
+    for(i=0;i<fim.questions.length;i++){
+        var q = fim.questions[i];
+        var subSectionHTML = "<div class=\"content-block-title normal-word-wrap\">" + q.title + "</div>\n\t\t" +
+                            "<div class=\"fim-mini-slider swiper-" + i + "\" index=\"" + i +  "\">\n\t\t\t" +
+                            "<div class=\"swiper-pagination\"></div>\n" + 
+                            "<div class=\"swiper-wrapper\">\n\t";
 
-            // calculate the total FIM score
-            $$('#totalScore').html('Total: ' + getSum(fimScores));
-        });
-    });
-
-    $$('#resetFIMscoresButton').click(function(){
-        resetFIMarr();
-        $$('#totalScore').html('Total: ' + getSum(fimScores));
-        $$('.fimCalculator li input[type="range"]').val(0);
-    });
-
-    function resetFIMarr(){
-        for(i=0; i<fimDomainCount; i++){ fimScores[i] = 0; }
+        for (j=0; j < q.choices.length; j++){
+            subSectionHTML += "<div class=\"swiper-slide swiper-slide-fim\" score=\"" + q.choices[j].value + "\"><span>("+ q.choices[j].value + 
+            ") " + q.choices[j].description + "</span></div>\n";
+        }
+        subSectionHTML += "</div>\n</div>\n";
+        fimHTML = fimHTML + subSectionHTML;
     }
+    fimHTML = fimHTML + "\n\n<p><a href=\"#\" id=\"resetFIMscoresButton\" class=\"button button-fill color-red button-round\">Reset Scores</a></p>";
+
+    $$('#fim-page-content').append(fimHTML);
+    $$('#fimScore').html("Total: " + getSum(fim.userScores));
+
+    for(i=0;i<fim.questions.length;i++){
+        // Activate the slider functionality
+        var targetSwiperDiv = '.swiper-'+i;
+
+        fimsliders[i] = myApp.swiper(targetSwiperDiv, {
+            pagination:'.swiper-pagination',
+            grabCursor: true,
+            spaceBetween: 50,
+            onSlideChangeEnd: function(swiper){
+                // callback function triggered when slide finishes moving
+                var newScore = swiper.slides[swiper.activeIndex].getAttribute("score");
+                fim.userScores[swiper.container[0].getAttribute("index")] = parseInt(newScore);
+                $$('#fimScore').html("Total: " + getSum(fim.userScores));
+            }
+        });
+    }
+
+     $$('#resetFIMscoresButton').click(function(){
+        for(i=0; i< fim.userScores.length; i++){ 
+            fim.userScores[i] = 7;                      // reset all user scores to 7
+            fimsliders[i].slideTo(0, 500, false);      // move all sliders back to 7 & skip callbacks
+
+        }
+        $$('#fimScore').html("Total: " + getSum(fim.userScores));
+    });
     
 });
 

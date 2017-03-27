@@ -3,11 +3,213 @@
 *	created by George Marzloff | george@marzloffmedia.com
 */
 
+// FIM
+// Based on https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/InpatientRehabFacPPS/downloads/irfpai-manualint.pdf
+
 // SCIM
 // Based on http://sci2.rickhanseninstitute.org/images/sci2/SCIM/toolkit/SCIM_Clinical_Form.pdf
 
 //PAIQI 
 // https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/IRF-Quality-Reporting/Downloads/DRAFT-IRF-PAI-FOR-OCT-2016.pdf
+
+var FIM_Scale = function () {
+
+	this.name = "FIM Instrument";
+
+	this.dressingChoices = [
+						new Choice("Complete Independence - safely dresses & undresses self obtaining clothes from drawers/closets, managing bra, front garment, zippers, buttons, snaps, dons prosthesis/orthosis.",7),
+						new Choice("Modified Independence - requires special adaptive closure such as a Velcro fastener or assisitve device, or takes more than a reasonable amount of time.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (application of orthoses or assistive/adaptive devices, setting out clothes",5),
+						new Choice("Minimal Contact Assistance - performs 75% or more of dressing tasks.",4),
+						new Choice("Moderate Assistance - performs 50%-74% of dressing tasks.",3),
+						new Choice("Maximal Assistance - performs 25-49% of dressing tasks.",2),
+						new Choice("Total Assistance - performs <25% of dressing tasks",1),
+						new Choice("Activity Does Not Occur - enter code 0 only for the admission assessment. The patient does not dress self and is not dressed by a helper.",0)
+					];
+
+	this.questions = [new Question(
+					"39A. Eating (using suitable utensils to bring food to the mouth and the ability to chew and swallow the food once the meal is presented).",
+					[
+						new Choice("Complete Independence - eats from a dish while managing variety of food consistencies, and drinks from a cup/glass with meal presented on table/tray. Opens containers, butters bread, cuts meat, pours liquids, uses a spoon or fork to bring food to mouth where it is chewed and swallowed.",7),
+						new Choice("Modified Independence - requires an adaptive or assistive device e.g. long straw spork or rocking knife, requires more than a reasonable time to eat, or requires modified food consistency. If s/he uses PPN/PEG, s/he self-feeds.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (application of orthoses or assistive/adaptive devices)  or another person is required to open containers, butter bread, cut meat, or pour liquids.",5),
+						new Choice("Minimal Contact Assistance - performs 75% or more of eating tasks.",4),
+						new Choice("Moderate Assistance - performs 50%-74% of eating tasks.",3),
+						new Choice("Maximal Assistance - performs 25-49% of eating tasks.",2),
+						new Choice("Total Assistance - performs <25% of eating tasks or fed via PPN/PEG and does not self-administer",1),
+						new Choice("Activity Does Not Occur - enter code 0 only for the admission assessment. The patient does not eat and does not receive PPN/PEG feeds during the entire assessment time frame.",0)
+					],
+					"Self-Care"),
+
+				new Question(
+					"39B. Grooming (oral care, hair grooming, washing their hands face and either shaving their face or applying makeup).",
+					[
+						new Choice("Complete Independence - cleans teeth/dentures, combs/brushes hair, washes hands, face and either shaves the face or applies make-up. activity is performed safely.",7),
+						new Choice("Modified Independence - requires specialized equipment (including prosthesis or orthosis) to groom or takes more than a reasonable time, or there are safety considerations.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (application of orthoses or assistive/adaptive devices, setting out grooming equipment or initial preparation such as applying toothpaste or opening make-up containers",5),
+						new Choice("Minimal Contact Assistance - performs 75% or more of grooming tasks.",4),
+						new Choice("Moderate Assistance - performs 50%-74% of grooming tasks.",3),
+						new Choice("Maximal Assistance - performs 25-49% of grooming tasks.",2),
+						new Choice("Total Assistance - performs <25% of grooming tasks",1),
+						new Choice("Activity Does Not Occur - enter code 0 only for the admission assessment. The patient does not groom and is not groomed by a helper.",0)
+					],
+					"Self-Care"),
+
+				new Question(
+					"39C. Bathing (washing, rinsing and drying body from neck down in either tub/shower/sponge bath. Performs activity safely).",
+					[
+						new Choice("Complete Independence - safely bathes (washes, rinses and dries) the body.",7),
+						new Choice("Modified Independence - requires specialized equipment (including prosthesis or orthosis) to bathe or takes more than a reasonable time, or there are safety considerations.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (application of orthoses or assistive/adaptive devices, setting out bathing equipment or initial preparation of water and washing materials",5),
+						new Choice("Minimal Contact Assistance - performs 75% or more of bathing tasks.",4),
+						new Choice("Moderate Assistance - performs 50%-74% of bathing tasks.",3),
+						new Choice("Maximal Assistance - performs 25-49% of bathing tasks.",2),
+						new Choice("Total Assistance - performs <25% of bathing tasks",1),
+						new Choice("Activity Does Not Occur - enter code 0 only for the admission assessment. The patient does not bathe self and is not bathed by a helper.",0)
+					],
+					"Self-Care"),
+
+				new Question(
+					"39D. Dressing - Upper (safely dressing and applying/removing prosthesis/orthosis).",
+					this.dressingChoices,
+					"Self-Care"),
+
+				new Question(
+					"39E. Dressing - Lower (safely dressing and applying/removing prosthesis/orthosis).",
+					this.dressingChoices,
+					"Self-Care"),
+
+				new Question(
+					"39F. Toileting (safely maintaining perineal hygiene and adjusting clothing before nad after using a toilet, commode, bedpan, or urinal.)",
+					[
+						new Choice("Complete Independence - safely cleanses self after voiding and bowel movements, safely adjusts clothing before/after using toilet commode, bedpan or urinal",7),
+						new Choice("Modified Independence - requires specialized equipment (including prosthesis or orthosis) during toileting or takes more than a reasonable time, or there are safety considerations.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (application of adaptive devices or opening packages",5),
+						new Choice("Minimal Contact Assistance - performs 75% or more of toileting tasks.",4),
+						new Choice("Moderate Assistance - performs 50%-74% of toileting tasks.",3),
+						new Choice("Maximal Assistance - performs 25-49% of toileting tasks.",2),
+						new Choice("Total Assistance - performs <25% of toileting tasks",1),
+						new Choice("Activity Does Not Occur - enter code 0 only for the admission assessment. The patient or helper does not perform toileting tasks.",0)
+					],
+					"Self-Care"),
+
+				new Question(
+					"39G. Bladder Management (safe use of equipment or agents)",
+					[
+						new Choice("Complete Independence - controls bladder completely and intentionally without equipment or devices and is never incontinent",7),
+						new Choice("Modified Independence - requires urinal, bedpan, catheter, absorbent pad, diaper, urinary collecting device or diversion, or uses meds for control. " +
+									"If cath, pt cleans, sterilizes and sets up equipment for irrigation without assistance. If device used, (s)he assembles/applies external catheter "+
+									"with drainage bags or an ileal appliance without help. also empties, puts on, removes, cleans leg bag or ileal bag. Has no accidents. ",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (placing or emptying) equipment to maintain satisfactory voiding pattern or external device in the past 3 days.",5),
+						new Choice("Minimal Contact Assistance - to maintain external device, and performs >75% of bladder tasks in past 3 days.",4),
+						new Choice("Moderate Assistance - to maintain external device, and performs 50-74% of bladder tasks in past 3 days.",3),
+						new Choice("Maximal Assistance - performs 25-49% of bladder management tasks.",2),
+						new Choice("Total Assistance - performs <25% of bladder management tasks",1)
+					],
+					"Self-Care"),
+
+				new Question(
+					"39H. Bowel Management (safe use of equipment or agents)",
+					[
+						new Choice("Complete Independence - controls bowel completely and intentionally without equipment or devices and is never incontinent",7),
+						new Choice("Modified Independence - requires bedpad, dig stim, stool softener, suppositories, laxatives, enemas or other meds on a regular basis. Never incontinent.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup of equipment to maintain satisfactory excretory pattern or ostomy in the past 3 days.",5),
+						new Choice("Minimal Contact Assistance - to maintain satisfactory excretory pattern by suppositories, enemas or an external device, performs >75% tasks in past 3 days.",4),
+						new Choice("Moderate Assistance - to maintain satisfactory excretory pattern by suppositories, enemas or an external device, and performs 50-74% of tasks in past 3 days.",3),
+						new Choice("Maximal Assistance - performs 25-49% of bowel management tasks in past 3 days.",2),
+						new Choice("Total Assistance - performs <25% of bowel management tasks in past 3 days",1)
+					],
+					"Self-Care"),
+
+				new Question(
+					"39I. Transfers: Bed, Chair, Wheelchair (includes all aspects transferring to/from items, or sit-to-stand if patient is ambulatory)",
+					[
+						new Choice("Complete Independence - if walking - safely sits/stands from regular chair. if in wheelchair, aproaches bed/chair, locks brakes, lifts foot rests, removes arm rest, standing pivots or sliding transfer w/o board and returns.",7),
+						new Choice("Modified Independence - requires adaptive or assistive device such as a sliding board, lift, grab bars, or special seat/chair/brace/crutches, or it takes a long time, or is done unsafely.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (positioning sliding board, moving foot rests, etc)",5),
+						new Choice("Minimal Contact Assistance - requires no more help than touching and performs >75% transferring tasks",4),
+						new Choice("Moderate Assistance - requires more help than touching and performs 50-74% transferring tasks",3),
+						new Choice("Maximal Assistance - performs 25-49% of transferring tasks.",2),
+						new Choice("Total Assistance - performs <25% of transferring tasks",1)
+					],
+					"Mobility"),
+
+				new Question(
+					"39J. Transfers: Toilet (includes all aspects transferring to/from items, or sit-to-stand if patient is ambulatory)",
+					[
+						new Choice("Complete Independence - if walking - safely sits/stands from standard toilet. if in wheelchair, approaches toilet, locks brakes, lifts foot rests, removes arm rest, standing pivots or sliding transfer w/o board and returns.",7),
+						new Choice("Modified Independence - requires adaptive or assistive device such as a sliding board, lift, grab bars, or special seat, or it takes a long time, or is done unsafely.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (positioning sliding board, moving foot rests, etc)",5),
+						new Choice("Minimal Contact Assistance - requires no more help than touching and performs >75% transferring tasks",4),
+						new Choice("Moderate Assistance - requires more help than touching and performs 50-74% transferring tasks",3),
+						new Choice("Maximal Assistance - performs 25-49% of transferring tasks.",2),
+						new Choice("Total Assistance - performs <25% of transferring tasks",1),
+						new Choice("Activity Does Not Occur - only for admission, and patient or helper does not transfer to toilet (e.g. bedpan or urinal use only)",1)
+					],
+					"Mobility"),
+
+				new Question(
+					"39K. Transfers: Tub (getting into and out of tub safely)",
+					[
+						new Choice("Complete Independence - if walking - safely approaches tub, gets into and out of it. if in wheelchair, approaches tub, locks brakes, lifts foot rests, removes arm rest, standing pivots or sliding transfer w/o board and returns.",7),
+						new Choice("Modified Independence - requires adaptive or assistive device such as a sliding board, lift, grab bars, or special seat, or it takes a long time, or is done unsafely.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (positioning sliding board, moving foot rests, etc)",5),
+						new Choice("Minimal Contact Assistance - requires no more help than touching and performs >75% transferring tasks",4),
+						new Choice("Moderate Assistance - requires more help than touching and performs 50-74% transferring tasks",3),
+						new Choice("Maximal Assistance - performs 25-49% of transferring tasks.",2),
+						new Choice("Total Assistance - performs <25% of transferring tasks",1),
+						new Choice("Activity Does Not Occur - patient or helper does not transfer to tub",1)
+					],
+					"Mobility"),
+
+				new Question(
+					"39L. Transfers: Shower (getting into and out of shower safely)",
+					[
+						new Choice("Complete Independence - if walking - safely approaches shower stall, gets into and out of it. if in wheelchair, approaches shower stall, locks brakes, lifts foot rests, removes arm rest, standing pivots or sliding transfer w/o board and returns.",7),
+						new Choice("Modified Independence - requires adaptive or assistive device such as a sliding board, lift, grab bars, or special seat, or it takes a long time, or is done unsafely.",6),
+						new Choice("Supervision or Setup - requires supervision (standing by, cuing or coaxing) or setup (positioning sliding board, moving foot rests, etc)",5),
+						new Choice("Minimal Contact Assistance - requires no more help than touching and performs >75% transferring tasks",4),
+						new Choice("Moderate Assistance - requires more help than touching and performs 50-74% transferring tasks",3),
+						new Choice("Maximal Assistance - performs 25-49% of transferring tasks.",2),
+						new Choice("Total Assistance - performs <25% of transferring tasks",1),
+						new Choice("Activity Does Not Occur - patient or helper does not transfer in/out of shower",1)
+					],
+					"Mobility"),
+
+				new Question(
+					"39K. Locomotion: Walk (safely walking on level surface once in a standing position)",
+					[
+						new Choice("Complete Independence - safely walks minimum of 150 feet without assistive devices.",7),
+						new Choice("Modified Independence - walks min 150 ft, but uses brace (orthosis) or prosthesis, adaptive shoes, cane crutches, or walkerette, or is done slowly, or unsafely",6),
+						new Choice("Exception (Household Locomotion) - walks 50-150 ft independently with/without device. done slowly or unsafely",5),
+						new Choice("Supervision - requires standby supervision, cuing, coaxing to min 150ft",5),
+						new Choice("Minimal Contact Assistance - performs >75% walking effort to go minimum of 150ft",4),
+						new Choice("Moderate Assistance - performs 50-74% to go minimum 150ft",3),
+						new Choice("Maximal Assistance - performs 25-49%  of walking effort to go minimum 50 ft, requires 1 person assist.",2),
+						new Choice("Total Assistance - performs <25% of walking effort or requires two person assist, or walks to less than 50 ft",1),
+						new Choice("Activity Does Not Occur - patient does not walk, only used for admission",1)
+					],
+					"Mobility"),
+
+				new Question(
+					"39L. Locomotion: Wheelchair (safely won a level surface, once in a seated position)",
+					[
+						new Choice("Do not use if patient uses a wheelchair.",7),
+						new Choice("Modified Independence - operates manual/motorized wheelchair independently for 150+ ft, turns around, maneuvers chair to a table, bed toilet, negotiates 3% grade, maneuvers on rugs and over door sills.",6),
+						new Choice("Exception (Household Locomotion) - operates a manual or motorized wheelchair independently only short distances",5),
+						new Choice("Supervision - requires standby supervision, cuing, coaxing to min 150ft",5),
+						new Choice("Minimal Contact Assistance - performs >75% walking effort to go minimum of 150ft",4),
+						new Choice("Moderate Assistance - performs 50-74% to go minimum 150ft",3),
+						new Choice("Maximal Assistance - performs 25-49%  of walking effort to go minimum 50 ft, requires 1 person assist.",2),
+						new Choice("Total Assistance - performs <25% of walking effort or requires two person assist, or walks to less than 50 ft",1),
+						new Choice("Activity Does Not Occur - patient does not use a wheelchair or not pushed in a wheelchair by helper. only used for admission",1)
+					],
+					"Mobility")
+
+	];
+
+	this.userScores = Array(this.questions.length).fill(7); // initializes array to keep track of score for each question. 26 total questions	
+}
 
 var SCIM_Scale = function () {
 
