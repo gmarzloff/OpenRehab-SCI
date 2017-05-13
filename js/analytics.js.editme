@@ -12,7 +12,7 @@ ga('create', '[your ID]', 'auto'); // Use your google analytics ID here
 
 // Call this function in my-app.js. see myApp.onPageBeforeInit()
 function pingAnalytics(link,title){
-    if(link.length>0 && title.length>0){
+    if(link && title){
       ga('set','page',link);
       ga('set','title',title);
     }
