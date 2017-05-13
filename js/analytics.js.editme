@@ -1,5 +1,6 @@
 // This is code for Google Analytics. 
-// Paste your analytics code in here, and copy the file to "analytics.js" for it to work
+// Paste your analytics code in here, and copy the file to "analytics.js".
+// also remove the /* for example: and */ comment markings for it to work
 
 /* for example:
 
