@@ -2,6 +2,9 @@
 var isAndroid = Framework7.prototype.device.android === true;
 var isIos = Framework7.prototype.device.ios === true;
 
+// sets up flag to check if custom analytics file exists. 
+var analyticsFileExists = false;    
+
 // Set Template7 global devices flags
 Template7.global = {
     android: isAndroid,
@@ -51,8 +54,12 @@ myApp.onPageInit('asia', function (page) {
 myApp.onPageBeforeInit('*', function(page){
    // This will trigger analytics, using a custom function in js/analytics.js. 
    // Comment out these lines if you are not running analytics.
-   var pageTitle = $$(page.navbarInnerContainer).find('.center.sliding').html();
-   pingAnalytics(page.url,pageTitle);
+
+   if(analyticsFileExists){
+       var pageTitle = $$(page.navbarInnerContainer).find('.center.sliding').html();
+       pingAnalytics(page.url,pageTitle);
+    }
+
 });
 
 myApp.onPageInit('fim', function (page) {
