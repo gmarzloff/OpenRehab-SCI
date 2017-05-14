@@ -53,7 +53,6 @@ myApp.onPageInit('asia', function (page) {
 */
 myApp.onPageBeforeInit('*', function(page){
    // This will trigger analytics, using a custom function in js/analytics.js. 
-   // Comment out these lines if you are not running analytics.
 
    if(analyticsFileExists){
        var pageTitle = $$(page.navbarInnerContainer).find('.center.sliding').html();
