@@ -204,7 +204,87 @@ var FIM_Scale = function () {
 						new Choice("Total Assistance - performs <25% of walking effort or requires two person assist, or walks to less than 50 ft",1),
 						new Choice("Activity Does Not Occur - patient does not use a wheelchair or not pushed in a wheelchair by helper. only used for admission",1)
 					],
-					"Mobility")
+					"Mobility"),
+
+				new Question(
+					"39M. Locomotion: Stairs",
+					[
+						new Choice("Independence - Safely goes up and down at least 1 flight of stairs without depending on handrail or support",7),
+						new Choice("Modified Independence - Goes up and down at least 1 flight of stairs but requires side support, handrail, cane or portable supports, or takes long time, or safety issue",6),
+						new Choice("Exception (Household Ambulation) - Goes up/down 4-6 stairs independently w or w/o device. takes long time or safety issue", 5),
+						new Choice("Minimal Contact Assistance - patient performs >75% effort to go up and down one flight of stairs",4),
+						new Choice("Moderate Assistance - patient performs 50-74% effort to go up and down one flight of stairs",3),
+						new Choice("Maximal Assistance - patient performs 25-49% effort to go up and down 4-6 stairs, requires 1-person assistance",2),
+						new Choice("Total Assistance - patient performs <25% of effort or requires 2-person assist or goes up/down <4 stairs",1),
+						new Choice("Activity does not occur (does not go up/down stairs or helper does not carry subject up/down stairs.",0)
+					],
+					"Mobility"),
+
+				new Question(
+					"39N. Comprehension",
+					[
+						new Choice("Complete Independence - understands complex or abstract directions and coversation, and understands either spoken or written language (not necessarily English)",7),
+						new Choice("Modified Independence - understands readily or with only mild difficulty complex or abstract directions and conversation. does not require prompting, though s/he may require hearing/visual aid or other assistive device or extra time.",6),
+						new Choice("Standby Prompting - understands directions and conversation about basic daily needs >90% of the time, requires prompting (slowed speech, use of repetition, stressing particular words/phrases, pauses, visual or gestural cues <10% time",5),
+						new Choice("Minimal Prompting - understands directions and conversation about daily neesd 75-90% of the time",4),
+						new Choice("Moderate Prompting - understands directions and conversation about basic daily needs 50-74% of the time",3),
+						new Choice("Maximal Prompting - understands directions and conversation about basic daily needs 25-49% of the time. understands only simple commonly used spoken expressions (hello, how are you) or gestures (waving good-bye). requires prompting >1/2 the time",2),
+						new Choice("Total Assistance - understands directions and conversation about basic daily needs <25% of the time or does not understand simple commonly used spoken expressions (hello, how are you) or gestures (waving good-bye) or does not respond appropriately despite prompting",1)
+					],
+					"Cognition"),
+
+				new Question(
+					"39O. Expression",
+					[
+						new Choice("Complete Independence - Expresses complex or abstract ideas clearly and fluently (not necessarily in English)",7),
+						new Choice("Modified Independence - usually expresses complex or abstract ideas clearly or with mild difficulty. no prompting needed but may require augmentative communication system.",6),
+						new Choice("Standby Prompting - expresses basic daily needs and ideas >90% of the time. requires prompting <10% of time to be understood.",5),
+						new Choice("Minimal Prompting - expresses basic daily needs and ideas 75-90% of the time.",4),
+						new Choice("Moderate Prompting - expresses basic daily needs and ideas 50-74% of the time.",3),
+						new Choice("Maximal Prompting - expresses basic daily needs and ideas 25-49% of the time. uses single words or gestures and needs prompting >50% time",2),
+						new Choice("Total Assistance - expresses basic daily needs <25% of the time, or does not express basic daily needs appropriately despite prompting.",1)
+						],
+					"Cognition"),
+
+				new Question(
+					"39P. Social Interaction",
+					[
+						new Choice("Complete Independence - interacts appropriately with staff, other patients and family members, no medication for control.",7),
+						new Choice("Modified Independence - usually interacts appropriately with staff, other patients and family members, rarely loses control. does not require supervision but may require more reasonable amonut of time to adjust to social situations or medication for control.",6),
+						new Choice("Supervision - requires supervision only under stressful or unfamiliar conditions < 10% time. may require encouragement to initiate participation.",5),
+						new Choice("Minimal Direction - interacts appropriately 75-90% of the time.",4),
+						new Choice("Moderate Direction - interacts appropriately 50-74% of the time.",3),
+						new Choice("Maximal Direction - interacts appropriately 25-49% of the time, but may need restraint due to socially inappropriate behaviors.",2),
+						new Choice("Total Assistance - interacts appropriately <25% of time and may need restraint due to socially inappropriate behaviors",1)
+						
+						],
+					"Cognition"),
+
+				new Question(
+					"39Q. Problem Solving",
+					[
+						new Choice("Complete Independence - consistently recognizes problems when present, makes appropriate decisions, initiates and carries out sequence of steps to solve complex problems until the task is completed, and self-corrects if errors are made.",7),
+						new Choice("Modified Independence - usually recognizes present probme, with only mild difficulty makes appropriate decisions, initiates and carries out sequence of steps to solve complex problems, or requires more than a reasonable time to make appropriate decisions or complex probmlems.",6),
+						new Choice("Supervision - requires supervision (E.g. cuing or coaxing) to solve less routine problems only under stressful or unfamiliar conditions but <10% of the time",5),
+						new Choice("Minimal Direction - solves routine problems 75-90% of the time",4),
+						new Choice("Moderate Direction - solves routine problems 50-74% of the time",3),
+						new Choice("Maximal Direction - solves routine problems 25-49% of the time. needs direction more than half time to initiate, plan, or complete simple daily activities and may need restraint for safety.",2),	
+						new Choice("Total Assistance - solves routine problems <25% of the time. needs direction nearly all the time, or does not effectively solve problems, and may require constant 1-to-1 direction to complete simple daily tasks. may need safety restraint.",1)
+					],
+					"Cognition"),
+
+				new Question(
+					"39R. Memory",
+					[
+						new Choice("Complete Independence - recognizes people frequently encountered, remembers daily routines, and executes requests of others without need for repetition",7),
+						new Choice("Modified Independence - appears to have only mild difficulty  recognizing people frequently encountered, remembering daily routines, and responding to requests of others. May use self-initiated or environmental cues, prompts or aids.",6),
+						new Choice("Supervision - requires prompting (cuing, repetition, reminders) only under stressful or unfamiliar conditions, but no more than 10% of the time",5),
+						new Choice("Minimal Prompting - recognizes 75-90% of the time",4),
+						new Choice("Moderate Prompting - recognizes 50-74% of the time",3),
+						new Choice("Maximal Prompting - recognizes 25-49% of the time, needs prompting more than half the time",2),
+						new Choice("Total Assistance - recognizes <25% of the time, or does not effectively recognize and remember",1)
+						],
+					"Cognition")
 
 	];
 
