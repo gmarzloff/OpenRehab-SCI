@@ -542,41 +542,71 @@ var Choice = function(desc,value){
 // *******************	******************  *******************  *******************  *******************
 
 // CMS PAI QI Assessment Class
+// Reference: https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/IRF-Quality-Reporting/Downloads/DRAFT-IRF-PAI-FOR-OCT-2016.pdf
 
 var PAIQI_Scale = function () {
 
-	this.questions = [
+	this.categories = [
+		{
+			name: "Self-care",
+			items: [
+				new Activity("A. Eating", "The ability to use suitable utensils to bring food to the mouth and swallow food once the meal is presented on a table/tray. Includes modified food consistency."),
+				new Activity("B. Oral hygiene", "The ability to use suitable items to clean teeth. [Dentures (if applicable): The ability to remove and replace dentures from and to the mouth, and manage equipment for soaking and rinsing them.]"),
+				new Activity("C. Toileting hygiene", "The ability to maintain perineal hygiene, adjust clothes before and after using the toilet, commode, bedpan or urinal. If managing an ostomy, include wiping the opening but not managing equipment. "),
+				new Activity("E. Shower/bathe self", "The ability to bathe self in shower or tub, including washing, rinsing, and drying self. Does not include transferring in/out of tub/shower."),
+				new Activity("F. Upper body dressing", " The ability to put on and remove shirt or pajama top; includes buttoning, if applicable."),
+				new Activity("G. Lower body dressing", "The ability to dress and undress below the waist, including fasteners; does not include footwear."),
+				new Activity("H. Putting on/taking off footwear", "The ability to put on and take off socks and shoes or other footwear that is appropriate for safe mobility.")
+			]
+		},
 
-		//Self-care
-		new Activity("A. Eating", "The ability to use suitable utensils to bring food to the mouth and swallow food once the meal is presented on a table/tray. Includes modified food consistency."),
-		new Activity("B. Oral hygiene", "The ability to use suitable items to clean teeth. [Dentures (if applicable): The ability to remove and replace dentures from and to the mouth, and manage equipment for soaking and rinsing them.]"),
-		new Activity("C. Toileting hygiene", "The ability to maintain perineal hygiene, adjust clothes before and after using the toilet, commode, bedpan or urinal. If managing an ostomy, include wiping the opening but not managing equipment. "),
-		new Activity("E. Shower/bathe self", "The ability to bathe self in shower or tub, including washing, rinsing, and drying self. Does not include transferring in/out of tub/shower."),
-		new Activity("F. Upper body dressing", " The ability to put on and remove shirt or pajama top; includes buttoning, if applicable."),
-		new Activity("G. Lower body dressing", "The ability to dress and undress below the waist, including fasteners; does not include footwear."),
-		new Activity("H. Putting on/taking off footwear", "The ability to put on and take off socks and shoes or other footwear that is appropriate for safe mobility."),
-
-		// Mobility
-		new Activity("A. Roll left and right", "The ability to roll from lying on back to left and right side, and return to lying on back."),
-		new Activity("B. Sit to lying", "The ability to move from sitting on side of bed to lying flat on the bed."),
-		new Activity("C. Lying to sitting on side of bed", "The ability to safely move from lying on the back to sitting on the side of the bed with feet flat on the floor, and with no back support."),
-		new Activity("D. Sit to stand", "The ability to safely come to a standing position from sitting in a chair or on the side of the bed."),
-		new Activity("E. Chair/bed-to-chair transfer", "The ability to safely transfer to and from a bed to a chair (or wheelchair)."),
-		new Activity("F. Toilet transfer", "The ability to safely get on and off a toilet or commode."),
-		new Activity("G. Car transfer", "The ability to transfer in and out of a car or van on the passenger side. Does not include the ability to open/close door or fasten seat belt."),
-		new Activity("I. Walk 10 feet", "Once standing, the ability to walk at least 10 feet in a room, corridor or similar space."),
-		new Activity("J. Walk 50 feet with two turns", "Once standing, the ability to walk at least 50 feet and make two turns. "),
-		new Activity("K. Walk 150 feet", "Once standing, the ability to walk at least 150 feet in a corridor or similar space."),
-		new Activity("L. Walking 10 feet on uneven surfaces", "The ability to walk 10 feet on uneven or sloping surfaces, such as grass or gravel."),
-		new Activity("M. 1 step (curb)", "The ability to step over a curb or up and down one step"),
-		new Activity("N. 4 steps", "The ability to go up and down four steps with or without a rail."),
-		new Activity("O. 12 steps", "The ability to go up and down 12 steps with or without a rail."),
-		new Activity("P. Picking up object", "The ability to bend/stoop from a standing position to pick up a small object, such as a spoon, from the floor."),
-		new Activity("R. Wheel 50 feet with two turns", "Once seated in wheelchair/scooter, the ability to wheel at least 50 feet and make two turns."),
-		new Activity("S. Wheel 150 feet", "Once seated in wheelchair/scooter, the ability to wheel at least 150 feet in a corridor or similar space.")
+		{
+			name: "Mobility",
+			items: [	
+				new Activity("A. Roll left and right", "The ability to roll from lying on back to left and right side, and return to lying on back."),
+				new Activity("B. Sit to lying", "The ability to move from sitting on side of bed to lying flat on the bed."),
+				new Activity("C. Lying to sitting on side of bed", "The ability to safely move from lying on the back to sitting on the side of the bed with feet flat on the floor, and with no back support."),
+				new Activity("D. Sit to stand", "The ability to safely come to a standing position from sitting in a chair or on the side of the bed."),
+				new Activity("E. Chair/bed-to-chair transfer", "The ability to safely transfer to and from a bed to a chair (or wheelchair)."),
+				new Activity("F. Toilet transfer", "The ability to safely get on and off a toilet or commode."),
+				new Activity("G. Car transfer", "The ability to transfer in and out of a car or van on the passenger side. Does not include the ability to open/close door or fasten seat belt."),
+				new Activity("I. Walk 10 feet", "Once standing, the ability to walk at least 10 feet in a room, corridor or similar space."),
+				new Activity("J. Walk 50 feet with two turns", "Once standing, the ability to walk at least 50 feet and make two turns. "),
+				new Activity("K. Walk 150 feet", "Once standing, the ability to walk at least 150 feet in a corridor or similar space."),
+				new Activity("L. Walking 10 feet on uneven surfaces", "The ability to walk 10 feet on uneven or sloping surfaces, such as grass or gravel."),
+				new Activity("M. 1 step (curb)", "The ability to step over a curb or up and down one step"),
+				new Activity("N. 4 steps", "The ability to go up and down four steps with or without a rail."),
+				new Activity("O. 12 steps", "The ability to go up and down 12 steps with or without a rail."),
+				new Activity("P. Picking up object", "The ability to bend/stoop from a standing position to pick up a small object, such as a spoon, from the floor."),
+				new Activity("R. Wheel 50 feet with two turns", "Once seated in wheelchair/scooter, the ability to wheel at least 50 feet and make two turns."),
+				new Activity("S. Wheel 150 feet", "Once seated in wheelchair/scooter, the ability to wheel at least 150 feet in a corridor or similar space.")
+			]
+		}
 	];
 
+	this.choices = [
+    new Choice("Independent - Patient completes the activity by him/herself with no assistance from a helper.",6),
+    new Choice("Setup or clean-up assistance - Helper sets up or cleans up; patient completes activity. Helper assists only prior to or following the activity.",5),
+    new Choice("Supervision or touching assistance - Helper provides verbal cues or touching/steadying assistance as patient completes activity. Assistance may be provided throughout the activity or intermittently.",4),
+    new Choice("Partial/moderate assistance - Helper does less than half the effort. Helper lifts, holds or supports trunk or limbs, but provides less than half the effort.",3),
+    new Choice("Substantial/maximal assistance - Helper does more than half the effort. Helper lifts or holds trunk or limbs and provides more than half the effort.",2),
+    new Choice("Substantial/maximal assistance - Helper does more than half the effort. Helper lifts or holds trunk or limbs and provides more than half the effort.",1)
+	];
 
+	const self = this; // cache workaround for 'this' scope conflict
+	this.totalItems = function(){
+		var n = 0;
+		for(i=0;i<self.categories.length;i++){
+			for(j=0;j<self.categories[i].items.length;j++){ n++; }
+		}
+		return n;
+	}();
+
+	// initializes array to keep track of score for each question.
+	this.userScores = [];
+	for(i=0;i<this.totalItems;i++){
+		this.userScores[i] = 6;	
+	}
 };
 
 var Activity = function(title,description){

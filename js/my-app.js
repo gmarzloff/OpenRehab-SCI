@@ -151,50 +151,65 @@ myApp.onPageInit('scim', function (page) {
 });
 
 
-myApp.onPageInit('paiqi', function (page) {
+var paiqisliders = [];
+myApp.onPageInit('paiqi',function(page){
+
     var paiqi = new PAIQI_Scale();
-    var paiqiScores = [];           // creates an array of scores
-    resetPAIQIarr();                  // sets all elements to 0
+    var paiqiHTML = "";
     
-    // Generate HTML for list of sliders
-    var activityHTMLstring = ""
-    for(i=0;i<paiqi.questions.length;i++){
-        var q = paiqi.questions[i];
-        var subSectionHTML = "<div class=\"content-block activity-block\">\n\t<div class=\"content-block-inner\">\n\t" +
-                            "<p><span class=\"activityTitle\">" + q.title + ":</span> " + q.description + "</p>\n\t\t" +
-                             "<div class=\"item-title\"><span class=\"score\">(0)</span></div>\n" + 
-                            "<div class=\"item-input\"><div class=\"range-slider\">\n" +
-                            "<input type=\"range\" min=\"0\" max=\"6\" value=\"0\" step=\"1\"></div></div>" +
-                            "</div>\n</div>\n";
-        activityHTMLstring = activityHTMLstring + subSectionHTML;
+    var overallCurrentIndex = 0; // flattens indices from nested array for use in looping through swipers
+    for(i=0;i<paiqi.categories.length;i++){
+        var c = paiqi.categories[i];
+        var subSectionHTML = "<div class=\"content-block-title normal-word-wrap\">" + c.name + "</div>\n\t\t";
+
+        for(j=0;j<c.items.length;j++){
+            
+            subSectionHTML += "<div class=\"content-block-title normal-word-wrap\">" + c.items[j].title +": " + c.items[j].description + "</div>\n\t\t";
+            subSectionHTML += "<div class=\"swiper-container paiqi-mini-slider swiper-" + overallCurrentIndex + "\" index=\"" + overallCurrentIndex +  "\">\n\t\t\t" +
+                            "<div class=\"swiper-pagination\"></div>\n" + 
+                            "<div class=\"swiper-wrapper\">\n\t";
+
+            for (k=0; k < paiqi.choices.length; k++){
+                subSectionHTML += "<div class=\"swiper-slide\" score=\"" + paiqi.choices[k].value + "\"><span>("+ paiqi.choices[k].value + 
+                ") " + paiqi.choices[k].description + "</span></div>\n";
+                
+            }
+            overallCurrentIndex++;
+            subSectionHTML += "</div>\n</div>\n";
+        }
+        paiqiHTML += subSectionHTML;
+        
     }
-    activityHTMLstring = activityHTMLstring + "\n\n<p><a href=\"#\" id=\"resetPAIQIscoresButton\" class=\"button button-fill color-red button-round\">Reset Scores</a></p>";
-    $$('#paiqi-page-content').append(activityHTMLstring);
+    paiqiHTML += "\n\n<p><a href=\"#\" id=\"resetPAIQIscoresButton\" class=\"button button-fill color-red button-round\">Reset Scores</a></p>";
 
+    $$('#paiqi-page-content').append(paiqiHTML);
 
-
-    $$('.activity-block input[type="range"]').each(function(index,value){
-        $$(this).on('input change', function(){
-            paiqiScores[index] = parseInt(this.value);
-            $$(this).parents().eq(2).find('span.score').text('('+this.value+')');
-
-            // calculate the total FIM score
-            $$('#totalScore').html('Total: ' + getSum(paiqiScores));
+    // Now that HTML is appended, bind click function to the new elements
+    for(i=0;i<paiqi.userScores.length;i++){
+        var targetSwiperDiv = '.swiper-'+i;
+        var maxScore = paiqi.choices[0].value;
+        paiqisliders[i] = myApp.swiper(targetSwiperDiv, {
+            pagination:'.swiper-pagination',
+            grabCursor: true,
+            spaceBetween: 50,
+            onSlideChangeEnd: function(swiper){
+                // callback function triggered when slide finishes moving
+                var newScore = swiper.slides[swiper.activeIndex].getAttribute("score");
+                paiqi.userScores[swiper.container[0].getAttribute("index")] = parseInt(newScore);
+                $$('#paiqiScore').html(getSum(paiqi.userScores) + "/" + (paiqi.totalItems * maxScore));
+            }
         });
-    });
-
-    $$('#resetPAIQIscoresButton').click(function(){
-        resetPAIQIarr();
-        $$('#totalScore').html('Total: ' + getSum(paiqiScores));
-        $$('.activity-block input[type="range"]').val(0);
-        $$('.activity-block span.score').html('(0)');
-    });
-
-    function resetPAIQIarr(){
-        for(i=0; i<paiqi.questions.length; i++){ paiqiScores[i] = 0; }
     }
-    
-    
+   
+    $$('#resetPAIQIscoresButton').click(function(){
+        for(i=0; i< paiqi.userScores.length; i++){ 
+            paiqi.userScores[i] = paiqi.choices[0].value;// reset all user scores to max value (i.e. 6)
+            paiqisliders[i].slideTo(0, 500, false);   // move all sliders back to 0 & skip callbacks
+        }
+        var totalScore = paiqi.totalItems * paiqi.choices[0].value
+        $$('#paiqiScore').html(totalScore + '/'+ totalScore);
+    });
+
 });
 
 // Gets sum of array items

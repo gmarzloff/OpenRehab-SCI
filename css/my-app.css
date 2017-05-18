@@ -143,6 +143,10 @@ a.f7-icons:link {
 	font-weight: bold;
 }
 
+.paiqi-mini-slider {
+	height: 120px;
+}
+
 /* contacts page, created as part of tutorial */
 #contacts-page-content .portrait {
 	float: left;
