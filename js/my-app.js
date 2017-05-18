@@ -156,7 +156,8 @@ myApp.onPageInit('paiqi',function(page){
 
     var paiqi = new PAIQI_Scale();
     var paiqiHTML = "";
-    
+    var totalPossibleScore = paiqi.totalItems * paiqi.choices[0].value
+
     var overallCurrentIndex = 0; // flattens indices from nested array for use in looping through swipers
     for(i=0;i<paiqi.categories.length;i++){
         var c = paiqi.categories[i];
@@ -183,8 +184,9 @@ myApp.onPageInit('paiqi',function(page){
     paiqiHTML += "\n\n<p><a href=\"#\" id=\"resetPAIQIscoresButton\" class=\"button button-fill color-red button-round\">Reset Scores</a></p>";
 
     $$('#paiqi-page-content').append(paiqiHTML);
+    $$('#paiqiScore span').html(totalPossibleScore + '/'+ totalPossibleScore);
 
-    // Now that HTML is appended, bind click function to the new elements
+    // Now that HTML is appended, bind interaction code to the new elements
     for(i=0;i<paiqi.userScores.length;i++){
         var targetSwiperDiv = '.swiper-'+i;
         var maxScore = paiqi.choices[0].value;
@@ -196,7 +198,7 @@ myApp.onPageInit('paiqi',function(page){
                 // callback function triggered when slide finishes moving
                 var newScore = swiper.slides[swiper.activeIndex].getAttribute("score");
                 paiqi.userScores[swiper.container[0].getAttribute("index")] = parseInt(newScore);
-                $$('#paiqiScore').html(getSum(paiqi.userScores) + "/" + (paiqi.totalItems * maxScore));
+                $$('#paiqiScore span').html(getSum(paiqi.userScores) + "/" + (paiqi.totalItems * maxScore));
             }
         });
     }
@@ -207,7 +209,11 @@ myApp.onPageInit('paiqi',function(page){
             paiqisliders[i].slideTo(0, 500, false);   // move all sliders back to 0 & skip callbacks
         }
         var totalScore = paiqi.totalItems * paiqi.choices[0].value
-        $$('#paiqiScore').html(totalScore + '/'+ totalScore);
+        $$('#paiqiScore span').html(totalPossibleScore + '/'+ totalPossibleScore);
+    });
+
+    $$('#emailButton').on('click', function () {
+        paiqi.sendReportByEmail();
     });
 
 });
