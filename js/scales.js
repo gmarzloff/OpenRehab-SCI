@@ -675,5 +675,5 @@ function prepareEmailandSend(params) {
 	"Total Score: " + data.totalScore + "\n\n";
 	reportText += data.bodyText;
 
-	location.href = encodeURI('mailto:?&subject='+subj+'&body='+reportText);
+	location.href = 'mailto:?&subject=' + encodeURIComponent(subj) + '&body='+ encodeURIComponent(reportText);
 }
