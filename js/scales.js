@@ -80,7 +80,7 @@ var FIM_Scale = function () {
 					"Self-Care"),
 
 				new Question(
-					"39F. Toileting (safely maintaining perineal hygiene and adjusting clothing before nad after using a toilet, commode, bedpan, or urinal.)",
+					"39F. Toileting (safely maintaining perineal hygiene and adjusting clothing before and after using a toilet, commode, bedpan, or urinal.)",
 					[
 						new Choice("Complete Independence - safely cleanses self after voiding and bowel movements, safely adjusts clothing before/after using toilet commode, bedpan or urinal",7),
 						new Choice("Modified Independence - requires specialized equipment (including prosthesis or orthosis) during toileting or takes more than a reasonable time, or there are safety considerations.",6),

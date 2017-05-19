@@ -51,7 +51,7 @@ myApp.onPageInit('fim', function (page) {
     for(i=0;i<fim.questions.length;i++){
         var q = fim.questions[i];
         var subSectionHTML = "<div class=\"content-block-title normal-word-wrap\">" + q.title + "</div>\n\t\t" +
-                            "<div class=\"fim-mini-slider swiper-" + i + "\" index=\"" + i +  "\">\n\t\t\t" +
+                            "<div class=\"swiper-container fim-mini-slider swiper-" + i + "\" index=\"" + i +  "\">\n\t\t\t" +
                             "<div class=\"swiper-pagination\"></div>\n" + 
                             "<div class=\"swiper-wrapper\">\n\t";
 
@@ -161,7 +161,7 @@ myApp.onPageInit('paiqi',function(page){
     var overallCurrentIndex = 0; // flattens indices from nested array for use in looping through swipers
     for(i=0;i<paiqi.categories.length;i++){
         var c = paiqi.categories[i];
-        var subSectionHTML = "<div class=\"content-block-title normal-word-wrap\">" + c.name + "</div>\n\t\t";
+        var subSectionHTML = "<div class=\"content-block-title category-title normal-word-wrap\">" + c.name + "</div>\n\t\t";
 
         for(j=0;j<c.items.length;j++){
             
