@@ -105,30 +105,41 @@ a.f7-icons:link {
 	font-size: 40px;
 }
 /* Scale Question Swipers */
+
 .normal-word-wrap {
 	white-space: normal;
 	text-transform: none;
 	overflow: visible;
 }
 
-.swiper-slide {
-  	background: #fff;
-  	box-sizing: border-box;
-  	border: 1px solid #ccc;
-}
 .swiper-slide span {
   	text-align:center;
   	display:block;
   	margin: 15px;
   	font-size:14px;
 }
-.scim-mini-slider {
- 	height: 120px;
-  	margin: -5px 0 40px;
+
+/* FIM, SCIM, and PAIQI specific styling */
+
+.fim-mini-slider.swiper-container,
+.scim-mini-slider.swiper-container,
+.paiqi-mini-slider.swiper-container {
+	height: initial;
+	border: 1px solid #ccc;
+	background-color: #fff;
 }
 
-/* PAIQI page */
-.activity-block .activityTitle {
+.fim-mini-slider .swiper-slide,
+.scim-mini-slider .swiper-slide,
+.paiqi-mini-slider .swiper-slide {
+	padding-bottom: 25px;
+	border: none;
+}
+
+#paiqi-page-content .category-title {
+	font-size: 1.4em;
+	text-transform: uppercase;
+	text-align: center;
 	font-weight: bold;
 }
 
@@ -142,7 +153,7 @@ a.f7-icons:link {
 	width: 80px;
 }
 
-/* Fix for chrome not supporting  slider */
+/* Fix for chrome not supporting slider */
 .range-slider input[type="range"]::-webkit-slider-thumb {
 	border: 2px solid;
 	border-color: silver;
