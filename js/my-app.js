@@ -48,14 +48,28 @@ var mainView = myApp.addView('.view-main', {
 myApp.onPageBeforeInit('*', function(page){
    
    if(analyticsFileExists){
-       var pageTitle = $$(page.navbarInnerContainer).find('.center.sliding').html();
-       pingAnalytics(page.url,pageTitle);
-
+	if(bypassAnalytics){i
+	  // analytics is bypassed, and bypass is turned off ready for next pageView
+	  bypassAnalytics = false;
+       }else{
+         var pageTitle = $$(page.navbarInnerContainer).find('.center.sliding').html();
+         pingAnalytics(page.url,pageTitle);
+	}
     }else if (window.console && !consoleWarningTriggered){
         console.warn('js/analytics.js does not exist. Analytics not implemented.');
         consoleWarningTriggered = true;
     }
+});
 
+// These bypass flags prevent extra pageViews when user hits back to the Scales page.
+myApp.onPageBack('scim', function(page){
+  bypassAnalytics = true;
+});
+myApp.onPageBack('paiqi', function(page){
+  bypassAnalytics = true;
+});
+myApp.onPageBack('fim', function(page){
+  bypassAnalytics = true;
 });
 
 // Custom Page Initializers 

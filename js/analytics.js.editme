@@ -5,6 +5,7 @@
 /* for example:
 
 analyticsFileExists = true; // this will enable tracking called in my-app.js at myApp.onPageBeforeInit()
+bypassAnalytics = false; // adds bypass feature to avoid tracking certain pages
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -23,7 +24,9 @@ function pingAnalytics(link,title){
  }
  
 // This will run the first time the home page is reached
-ga('set','title','SCIM Rotation Home');
-ga('send','pageview');
+if(!bypassAnalytics){
+  ga('set','title','SCI Medicine Rotation Guide');
+  ga('send','pageview');
+}
 
 */
