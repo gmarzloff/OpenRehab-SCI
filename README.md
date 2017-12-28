@@ -79,20 +79,19 @@ You will host a website on your own computer that is accessible only on your com
 
   ![Open in Terminal](ReadmeResources/github-open-terminal.png)
 
-1. Mac users: skip this step. Windows users: You need to tell GitShell where to find the python software you just installed. To do this, copy and paste the following command into GitShell, and hit enter. Do not include the $ sign.
+2. Mac users: skip this step. Windows users: You need to tell GitShell where to find the python software you just installed. To do this, copy and paste the following command into GitShell, and hit enter. Do not include the $ sign.
 
   ```
   $ [Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Python27","User")
-  
   ```
   Now quit GitShell, and repeat step 6.1 to open it again. This is the only time you will have to do this ever.
   
-1. Paste the python command into Terminal (or GitShell) and hit enter to start the server.
+3. Paste the python command into Terminal (or GitShell) and hit enter to start the server.
   
   ```
   $ python -m SimpleHTTPServer 8000
   ```
-1.  Then open the web app in a browser: [http://localhost:8000](http://[ip address]:8000). This requests the web app from your local webserver. When you make edits, you will be able to see them here. You can also view the app in a mobile browser with a device on the same network as your web server. [Details below.](#view-on-mobile-device). When you want to stop the server later, type Ctrl+C. Also note, there are many other server options to run this such as Apache, Node.js, and nginx. 
+4.  Then open the web app in a browser: [http://localhost:8000](http://[ip address]:8000). This requests the web app from your local webserver. When you make edits, you will be able to see them here. You can also view the app in a mobile browser with a device on the same network as your web server. [Details below.](#view-on-mobile-device). When you want to stop the server later, type Ctrl+C. Also note, there are many other server options to run this such as Apache, Node.js, and nginx. 
 
 
 ### Step 7. Customize the existing code
@@ -143,7 +142,7 @@ In this step, we will create new content: a contact list for the SCI team. We wi
   ```
   The first line `<a href="contacts.html" class="item-link">` essentially says that we will make this row a link to a file named `contacts.html`. You can see this new row in your web browser by refreshing the page, choosing the "Spinal Cord Injury" button and scrolling down. The button will not go to a page because `contacts.html` does not exist yet.
 
-1. Next we will create `contacts.html`. In Sublime, create a new html file by choosing File → New and copy/paste the following HTML code.
+2. Next we will create `contacts.html`. In Sublime, create a new html file by choosing File → New and copy/paste the following HTML code.
 
   ```
 <div class="navbar">
@@ -184,12 +183,12 @@ In this step, we will create new content: a contact list for the SCI team. We wi
 </div>
   ```
 	  
-1. Save this file as `contacts.html`
+3. Save this file as `contacts.html`
 
   ![](ReadmeResources/contacts-location.png)
 
-1. Refresh [http://localhost:8000/](http://localhost:8000/) again. You should be able to navigate to a working contacts page now.
-2. Commit your new changes (See Step 7.4)
+4. Refresh [http://localhost:8000/](http://localhost:8000/) again. You should be able to navigate to a working contacts page now.
+5. Commit your new changes (See Step 7.4)
 
 ### Step 9. Create a Pull request
 A "pull request" is a request for the owner of the original repository to pull your new code/feature into the original repository. This is the mechanism to contribute updates to a project. In Github Desktop, click Pull Request (top right). Enter a title for the request. Below the title, change the left master to "gmarzloff/master" (if it is not already there) which is the original project and source of your fork. Then click "Send Pull Request"
