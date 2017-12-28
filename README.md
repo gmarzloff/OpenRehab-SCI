@@ -145,7 +145,7 @@ In this step, we will create new content: a contact list for the SCI team. We wi
 
 1. Next we will create `contacts.html`. In Sublime, create a new html file by choosing File → New and copy/paste the following HTML code.
 
-   ```
+  ```
 <div class="navbar">
     <div class="navbar-inner">
         <div class="left sliding">
@@ -183,6 +183,7 @@ In this step, we will create new content: a contact list for the SCI team. We wi
   </div>
 </div>
   ```
+	  
 1. Save this file as `contacts.html`
 
   ![](ReadmeResources/contacts-location.png)
