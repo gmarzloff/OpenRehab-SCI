@@ -105,18 +105,26 @@ You will host a website on your own computer that is accessible only on your com
 
 1. Save the file, then click into your web browser and hit the Refresh button. You should see the title text of the web app updated. If you are not seeing the update, try holding Shift as you click the refresh button.
 1. Commit this change:
-  1.  Switch back to Github Desktop
-  2.  Click the "Changes" button tab on the top left.
+   1.  Switch back to Github Desktop
+   2.  Click the "Changes" button tab on the top left.
   
   		![Github Changes](ReadmeResources/github-changes.png)
   		
       You will see the change you made to the subheading highlighted in green on the right. 
-  3. In the bottom left, type in the Summary field a comment describing what you did:
+      
+   3. In the bottom left, type in the Summary field a comment describing what you did:
   
      ![Github Commit](ReadmeResources/github-commit.png)
      
-  4. Click **Commit to master**. With this commit, you have created a record in the change history of your local web app. You can see this commit in the "History" tab now.
-1. Click **Push origin** to send this commit back to your fork of the repository on the Github server. This will only update your forked copy and does not affect the original repository (by gmarzloff). We will submit changes to the original repository later.
+   4. Click **Commit to master**. With this commit, you have created a record in the change history of your local web app. You can see this commit in the "History" tab now.
+   
+1. Click **Push origin** to send this commit back to *your* fork of the repository on the Github server. This push only updates your forked copy and does not affect the original repository (by gmarzloff). You can see this if you refresh the Github webpage of your fork (just to be clear - the url should look like `https://github.com/your-username/OpenRehab-SCI`). 
+
+Look at the message above the directory listing: 
+
+   ![Branch is One Commit Ahead](ReadmeResources/one-commit-ahead.png)
+
+   This notifies you that your fork is one commit *ahead* of the parent repository in the repository timeline. In Steps 8-9, you will make another commit and submit a *pull request* to the original repository to have your changes incorporated into that version. 
 
 ### Step 8. Create a new feature - Program Contacts page
 In this step, we will create new content: a contact list for the SCI team. We will add this feature to the SCI app.  
@@ -191,14 +199,29 @@ In this step, we will create new content: a contact list for the SCI team. We wi
 5. Commit your new changes (See Step 7.4)
 
 ### Step 9. Create a Pull request
-A "pull request" is a request for the owner of the original repository to pull your new code/feature into the original repository. This is the mechanism to contribute updates to a project. In Github Desktop, click Pull Request (top right). Enter a title for the request. Below the title, change the left master to "gmarzloff/master" (if it is not already there) which is the original project and source of your fork. Then click "Send Pull Request"
+A "pull request" is a request for the owner of the original repository to pull your new code/feature into the original repository. This is the mechanism to contribute updates to a project. 
+
+   1. In Github Desktop top menu bar, click Branch -> Create Pull Request. 
+
+   ![Create Pull request Menu](ReadmeResources/create-pull-request-menu.png)
+
+
+   This will launch the Github website to compare your fork and the "base" fork (gmarzloff/OpenRehab-SCI). The forks should be able to be automatically merged. Click the Create Pull Request button. 
+
+   ![Comparing changes](ReadmeResources/comparing-changes.png)
+
+   2. With this pull request you will request to merge your fork's changes into the base fork's changes. Enter a title for the request and optional comment, then click "Create Pull Request".
+   
+Your pull request was made, and a notification will be sent to the owners of the base fork. The typical process after this is the base repository owners will review your changes and may add to the discussion thread on the pull request's page. Once any details are worked out, your code changes are accepted and it becomes part of the base repository.
+
+So in this simple example, you can see how one can contribute new features and updates to the existing OpenRehab project. 
 
 ### Tutorial Conclusion
-By completing this tutorial, you have worked through a simulated cycle of collaborative software development. From here, you can explore Framework7: 
+By completing this tutorial, you have worked through a simulated cycle of collaborative software development. From here, there are several topics you can explore:: 
 
-1. The web apps use the [Framework7](https://framework7.io) library, but the full library does not need to be downloaded from that link for OpenRehab to work. When you are ready to customize your web apps, we recommend you download it to see code examples and understand its features.
+1. The web apps use the [Framework7](https://framework7.io) library which is "helper" code that makes the web apps look like native iOS or Android apps. This full library does not need to be downloaded for OpenRehab to work, but if you plan on customizing your web apps, we recommend you download it to see code examples and understand its features.
 
-1. You can explore the OpenRehab superproject and how the apps work as submodules within this superproject. You can also read about branches and their role in the software development cycle. Details to come.
+1. You can explore the [OpenRehab superproject](https://github.com/gmarzloff/OpenRehab) to see how the apps work as submodules within the superproject. You can also read about branches and their role in the software development cycle. Details to come.
 
 1. You can create new features, contribute back to the repository for others to use. Here are some ideas:
   1. Other rehab rotation topics. Peds? Cancer? Prosthetics/Orthotics?
