@@ -214,10 +214,10 @@ A "pull request" is a request for the owner of the original repository to pull y
    
 Your pull request was made, and a notification will be sent to the owners of the base fork. The typical process after this is the base repository owners will review your changes and may add to the discussion thread on the pull request's page. Once any details are worked out, your code changes are accepted and it becomes part of the base repository.
 
-So in this simple example, you can see how one can contribute new features and updates to the existing OpenRehab project. 
+So in this example, you can see how one can contribute new features and updates to the existing OpenRehab project. 
 
 ### Tutorial Conclusion
-By completing this tutorial, you have worked through a simulated cycle of collaborative software development. From here, there are several topics you can explore:: 
+By completing this tutorial, you have worked through a simulated cycle of collaborative software development. From here, there are several topics you can explore:
 
 1. The web apps use the [Framework7](https://framework7.io) library which is "helper" code that makes the web apps look like native iOS or Android apps. This full library does not need to be downloaded for OpenRehab to work, but if you plan on customizing your web apps, we recommend you download it to see code examples and understand its features.
 
