@@ -91,6 +91,12 @@ You will host a website on your own computer that is accessible only on your com
   ```
   $ python -m SimpleHTTPServer 8000
   ```
+  
+  Note: if you receive an error that no SimpleHTTPServer is installed you may be running python3 instead of python2.7. In this case, run: 
+  ```
+  $ python -m http.server 8000
+  ```
+  
 4.  Then open the web app in a browser: [http://localhost:8000](http://[ip address]:8000). This requests the web app from your local webserver. When you make edits, you will be able to see them here. You can also view the app in a mobile browser with a device on the same network as your web server. [Details below.](#view-on-mobile-device). When you want to stop the server later, type Ctrl+C. Also note, there are many other server options to run this such as Apache, Node.js, and nginx. 
 
 
