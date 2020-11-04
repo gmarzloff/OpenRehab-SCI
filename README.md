@@ -29,9 +29,9 @@ The tutorial is designed for users with no software programming experience. Obje
 
 Open Rehab is a web app, meaning you access it in a phone browser, and you do not need to install anything from an app store. A slightly modified version of this tutorial was tested in users with no experience, and results were presented at the Association of Academic Physiatrists' annual meeting. **The average time to complete was 26 minutes.** After this tutorial is done, you can easily remove the few things installed if desired.
 
-### Step 1. Install Sublime Text
+### Step 1. Install Visual Studio Code (free)
 
-[Sublime](https://www.sublimetext.com/3) is a text editor, like a fancy version of Notepad, used for writing code.
+[Microsoft Visual Studio Code](https://www.sublimetext.com/3) is a text editor, like a fancy version of Notepad, used for writing code.
 
 (For Mac users: open the file you downloaded and drag to your Applications.
 Windows users: double click the .exe file to run the installation file)
