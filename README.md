@@ -7,12 +7,16 @@
 
 ![SCI Web App](ReadmeResources/sci-screenshot.png)
 
+### [Live Demo](https://gmarzloff.github.io/OpenRehab-SCI/)
+
 Residents use their mobile devices frequently throughout the day for reference apps and websites such as UpToDate, Epocrates, Medscape.  However, the information is generalized and lacks useful information specific to a particular residency program. We have developed an open-source web app designed as a reference for use on rehab medicine rotation that users with little to no experience can:
 
 1. download from a code repository
 2. customize to their residency program
 3. create new features
 4. push new features back to the repository to contribute to the project.
+
+
 
 If you want the full suite of reference apps installed complete with a launch page, you probably want the [OpenRehab superproject](https://github.com/gmarzloff/OpenRehab). See **Basic Installation** in that README.
 
